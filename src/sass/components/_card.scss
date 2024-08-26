@@ -1,0 +1,178 @@
+.card {
+  position: relative;
+  width: 380px;
+  height: 226px;
+  border-radius: 12px;
+  user-select: none;
+
+  @include tablet {
+    width: 320px;
+    height: 200px;
+  }
+
+  @include small-tablet {
+    position: absolute;
+    top: -100px;
+  }
+
+  @include mobile {
+    display: none;
+  }
+
+  &__front,
+  &__back {
+    position: absolute;
+    inset: 0;
+    padding: 20px;
+    border-radius: 12px;
+    background: #7c98b2;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s linear;
+    backface-visibility: hidden;
+  }
+
+  &__front {
+    overflow: hidden;
+    transform: perspective(1000px) rotateY(0deg);
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      bottom: -30px;
+      right: -40px;
+      width: 300px;
+      height: 220px;
+      border-radius: 50%;
+      background: #2e5b85;
+
+      @include tablet {
+        bottom: -45px;
+        width: 246px;
+        height: 200px;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      bottom: -58px;
+      left: -40px;
+      width: 300px;
+      height: 200px;
+      border-radius: 50%;
+      background: #2e5b85;
+
+      @include tablet {
+        bottom: -82px;
+      }
+    }
+  }
+
+  &__back {
+    text-align: right;
+    backface-visibility: hidden;
+    transform: perspective(1000px) rotateY(180deg);
+  }
+
+  &__bank-info {
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+
+    @include tablet {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__chips {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    & img {
+      width: 40px;
+    }
+
+    & img:nth-child(2) {
+      width: 26px;
+    }
+  }
+
+  &__plastic-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: monospace, Arial, Helvetica, sans-serif;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.4);
+    color: aliceblue;
+  }
+
+  &__number-output {
+    margin: 0;
+    font-size: 24.5px;
+
+    @include tablet {
+      font-size: 21.6px;
+    }
+  }
+
+  &__exp-output {
+    display: flex;
+    align-items: center;
+    align-self: center;
+    font-size: 16px;
+
+    @include tablet {
+      font-size: 12px;
+    }
+
+    & span:nth-child(1) {
+      display: inline-block;
+      width: 33px;
+      font-size: 9px;
+      text-shadow: none;
+      text-transform: uppercase;
+      color: #999;
+
+      @include tablet {
+        width: 23px;
+        font-size: 7px;
+      }
+    }
+  }
+
+  &__type {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+  }
+
+  &__stripe {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 20px;
+    height: 54px;
+    background-color: #000;
+  }
+
+  &__cvc {
+    position: absolute;
+    top: 90px;
+    right: 40px;
+    padding: 8px;
+    width: 80px;
+    background-color: #fff;
+  }
+
+  &__cvc-output {
+    margin: 0;
+  }
+}

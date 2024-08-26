@@ -1,0 +1,95 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 50%;
+
+  @include small-tablet {
+    width: 100%;
+  }
+
+  &__input-group {
+    position: relative;
+    width: 100%;
+  }
+
+  &__input {
+    padding: 10px;
+    width: 100%;
+    outline: none;
+    border: 1px solid #999;
+    border-radius: 4px;
+    color: #144776;
+    background: transparent;
+    transition: border-color 0.3s ease-in-out;
+
+    &:focus-visible {
+      border-color: #144776;
+      background-color: #f0f8ff;
+    }
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #486f94;
+    text-transform: uppercase;
+    pointer-events: none;
+
+    @include tablet {
+      margin-bottom: 2px;
+      font-size: 12px;
+    }
+
+    @include mobile {
+      font-size: 10px;
+    }
+  }
+
+  &__submit {
+    padding: 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #2e5b85;
+    user-select: none;
+    transition:
+      opacity 0.2s ease-in-out,
+      background-color 0.2s ease-in-out;
+
+    &:focus-visible {
+      background-color: #486f94;
+    }
+
+    @include hover {
+      background-color: #486f94;
+    }
+
+    &:active {
+      background-color: #144776;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+}
+
+.error-message {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #db587c !important;
+
+  @include desktop {
+    font-size: 12px;
+    text-align: right;
+  }
+
+  @include tablet {
+    right: 6px;
+    width: 70%;
+  }
+}
